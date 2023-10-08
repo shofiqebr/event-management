@@ -1,0 +1,52 @@
+[
+    {
+      "id": 1,
+      "name": "Digital Marketing Masterclass",
+      "image": "https://example.com/digital-marketing-image.jpg",
+      "price": 199.99,
+      "short_description": "Learn the latest digital marketing strategies and boost your online presence.",
+      "button_text": "Register Now"
+    },
+    {
+      "id": 2,
+      "name": "Data Science Bootcamp",
+      "image": "https://example.com/data-science-image.jpg",
+      "price": 299.99,
+      "short_description": "Become a data scientist in just 12 weeks with hands-on projects.",
+      "button_text": "Enroll Today"
+    },
+    {
+      "id": 3,
+      "name": "Leadership Development Workshop",
+      "image": "https://example.com/leadership-image.jpg",
+      "price": 149.99,
+      "short_description": "Enhance your leadership skills and lead with confidence.",
+      "button_text": "Book Now"
+    },
+    {
+      "id": 4,
+      "name": "Web Development Crash Course",
+      "image": "https://example.com/web-development-image.jpg",
+      "price": 79.99,
+      "short_description": "Learn HTML, CSS, and JavaScript in a weekend intensive course.",
+      "button_text": "Sign Up"
+    },
+    {
+      "id": 5,
+      "name": "Project Management Certification",
+      "image": "https://example.com/project-management-image.jpg",
+      "price": 249.99,
+      "short_description": "Get certified as a project manager and advance your career.",
+      "button_text": "Get Certified"
+    },
+    {
+        "id": 6,
+        "name": "Advanced Machine Learning Workshop",
+        "image": "https://example.com/machine-learning-workshop-image.jpg",
+        "price": 349.99,
+        "short_description": "Dive deep into advanced machine learning techniques and algorithms.",
+        "button_text": "Register Now"
+      }
+      
+  ]
+  
