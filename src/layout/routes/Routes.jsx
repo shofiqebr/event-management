@@ -5,6 +5,7 @@ import {
 import Home from "../../Pages/Home";
 import NotFound from "../../Pages/NotFound";
 
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -12,12 +13,14 @@ import NotFound from "../../Pages/NotFound";
       children : [
         {
             path : "/",
-            element : <Home></Home>
+            element : <Home></Home>,
+            loader :()=> fetch("/data.json")
         },
         {
           path : "*",
           element : <NotFound></NotFound>
-        }
+        },
+       
     ]
   },
   ]);
