@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const TrainingCard = ({training}) => {
 
@@ -16,7 +17,7 @@ const TrainingCard = ({training}) => {
           <p>{short_description}</p>
           <p>course fee :{price}</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">{button_text}</button>
+           <Link to={`/training/${id}`}> <button className="btn btn-primary">{button_text}</button></Link>
           </div>
         </div>
       </div>

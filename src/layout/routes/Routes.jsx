@@ -6,6 +6,8 @@ import Home from "../../Pages/Home";
 import NotFound from "../../Pages/NotFound";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import TrainningDetails from "../../components/TrainingDetails/TrainningDetails";
+import PrivateRoute from "../../components/PrivateRoute";
 
 
 
@@ -30,6 +32,12 @@ import Register from "../../Pages/Register/Register";
         {
           path : "/Register",
           element : <Register></Register>
+        },
+        {
+          path : "/training/:id",
+          element : <PrivateRoute>
+            <TrainningDetails></TrainningDetails>
+          </PrivateRoute>
         }
        
     ]
