@@ -6,18 +6,12 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/TrainingCrd.jsx">Services</NavLink>
+        <NavLink to="/Login">Login</NavLink>
       </li>
       <li>
-        <NavLink to="/upcomming events">upcomming events</NavLink>
+        <NavLink to="/Register">Register</NavLink>
       </li>
-      <li>
-        <NavLink to="/our achievements">our achievements</NavLink>
-      </li>
-      <li>
-        <NavLink to="/special event">special event</NavLink>
-      </li>
-    </>
+      </>
   
   return (
     <div>

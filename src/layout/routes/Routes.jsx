@@ -4,6 +4,9 @@ import {
   import Root from '../Root';
 import Home from "../../Pages/Home";
 import NotFound from "../../Pages/NotFound";
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
+
 
 
   const router = createBrowserRouter([
@@ -20,6 +23,14 @@ import NotFound from "../../Pages/NotFound";
           path : "*",
           element : <NotFound></NotFound>
         },
+        {
+          path :"/Login",
+          element : <Login></Login>
+        },
+        {
+          path : "/Register",
+          element : <Register></Register>
+        }
        
     ]
   },
