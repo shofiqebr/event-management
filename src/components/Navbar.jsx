@@ -21,6 +21,12 @@ const handleSignOut = () =>{
       <li>
         <NavLink to="/Register">Register</NavLink>
       </li>
+      <li>
+        <NavLink to="/Most popular">Most popular</NavLink>
+      </li>
+      <li>
+        <NavLink to="/Blogs">Blogs</NavLink>
+      </li>
       </>
   
   return (

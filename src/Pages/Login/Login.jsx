@@ -1,14 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/Provider/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+  
+
+    const {signIn,user} = useContext(AuthContext);
     const location =useLocation();
     const navigate =useNavigate();
       console.log(location);
     
+
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+      const [firebaseError, setFirebaseError] = useState("");
 
     const handleLogin = e => {
         e.preventDefault();
@@ -19,12 +27,27 @@ const Login = () => {
     console.log(email,password);
     signIn(email,password)
     .then(result => {
-        console.log(result.user);
-
+      toast.success("Login successful!", {
+        position: "top-right",
+        
+    });
         navigate(location?.state ? location.state : '/');
     })
     .catch(error =>{
-        console.error(error);
+
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      
+      if (errorCode === "auth/wrong-password" || errorCode === "auth/user-not-found") {
+        setFirebaseError("Invalid email or password.");
+      } else {
+        setFirebaseError(errorMessage);
+      }
+
+      toast.error("Login failed. Please check your credentials.", {
+        position: "top-right",
+        
+    });
     })
   } 
     return (
@@ -39,13 +62,32 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+          <input
+                  name="email"
+                  type="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+          <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                  {firebaseError && (
+                  <p className="text-red-500">{firebaseError}</p>
+                )}
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
@@ -58,7 +100,9 @@ const Login = () => {
     </div>
   </div>
 </div>
+<ToastContainer />
         </div>
+         
     );
 };
 

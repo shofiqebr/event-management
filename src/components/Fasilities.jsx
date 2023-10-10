@@ -4,13 +4,13 @@ import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 const Fasilities = () => {
     return (
-        <div>
+        <div >
             <div className='text-center text-5xl py-10 font-bold'>
                 Facilities
             </div>
 
 
-        <div className=' pb-10 flex justify-between mx-72'>
+        <div className=' pb-10 flex justify-between lg:mx-52 md:mx-72 lg:flex-row flex-col'>
         <div >
             <AiFillDashboard className='w-32 h-32'></AiFillDashboard>
             <p>Every Day Support</p>

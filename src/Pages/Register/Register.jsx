@@ -1,11 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../components/Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const Register = () => {
 
     const {createUser} = useContext(AuthContext);
+    const [passwordError, setPasswordError] = useState("");
+    const [firebaseError, setFirebaseError] = useState("");
 
     const handleRegister = e => {
         e.preventDefault();
@@ -15,12 +18,42 @@ const Register = () => {
     const password = form.get('password')
     console.log(email,password);
 
+    const minLength = 6;
+    const hasCapitalLetter = /[A-Z]/.test(password);
+    const hasSpecialCharacter = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password);
+
+    if (password.length < minLength) {
+        setPasswordError("Password must be at least 6 characters long.");
+        return;
+    }
+
+    if (!hasCapitalLetter) {
+        setPasswordError("Password must contain at least one capital letter.");
+        return;
+    }
+
+    if (!hasSpecialCharacter) {
+        setPasswordError("Password must contain at least one special character.");
+        return;
+    }
+
+
+
+
+
     createUser(email,password)
     .then(result =>{
-        console.log(result.user);
+      toast.success("Login successful!", {
+        position: "top-right",
+    });
     })
-    .catch(error=>{
-        console.error(error);
+    .catch((error)=>{
+      const errorMessage = error.message;
+      setFirebaseError(errorMessage);
+      setPasswordError("");
+      toast.error("Login failed. Please check your credentials.", {
+        position: "top-right",
+    });
     })
 
 
@@ -58,16 +91,18 @@ const Register = () => {
             <span className="label-text">Password</span>
           </label>
           <input name='password' type="password" placeholder="password" className="input input-bordered" required />
-          
+          {passwordError && <p className="text-red-500">{passwordError}</p>}
+          {firebaseError && <p className="text-red-500">{firebaseError}</p>}
         </div>
         <div className="form-control mt-6">
-          <button className="btn btn-primary">Register</button>
+          <button  className="btn btn-primary">Register</button>
         </div>
       </form>
       <div className="p-5">already have an account!please <Link className="text-blue-700" to="/Login">Login</Link></div>
     </div>
   </div>
 </div>
+<ToastContainer />
         </div>
     );
 };

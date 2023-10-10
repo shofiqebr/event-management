@@ -2,11 +2,11 @@
 
 const Achievement = () => {
     return (
-        <div>
+        <div >
             <div className="text-center text-5xl font-bold py-10">
                 Achievements
             </div>
-        <div className="flex gap-10 mx-10">
+        <div className="flex lg:gap-10 lg:mx-10 flex-col lg:flex-row gap-5">
           <div>
           <div><img className="w-96 h-80" src="https://i.ibb.co/5Kd0wH4/achievement-4548538-640.webp" alt="" /></div>
             <p>Top level strtup</p>

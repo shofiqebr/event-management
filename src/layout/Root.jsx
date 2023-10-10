@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 
 const Root = () => {
     return (
-        <div>
+        <div className="ml-20 md:ml-0">
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

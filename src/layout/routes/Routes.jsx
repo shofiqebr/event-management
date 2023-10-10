@@ -6,8 +6,10 @@ import Home from "../../Pages/Home";
 import NotFound from "../../Pages/NotFound";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
-import TrainningDetails from "../../components/TrainingDetails/TrainningDetails";
+import TrainingDetails from "../../components/TrainingDetails/TrainingDetails";
 import PrivateRoute from "../../components/PrivateRoute";
+import MostPopular from "../../Pages/Most popular/MostPopular";
+import Blogs from "../../Pages/Blogs/Blogs";
 
 
 
@@ -21,10 +23,7 @@ import PrivateRoute from "../../components/PrivateRoute";
             element : <Home></Home>,
             loader :()=> fetch("/data.json")
         },
-        {
-          path : "*",
-          element : <NotFound></NotFound>
-        },
+        
         {
           path :"/Login",
           element : <Login></Login>
@@ -36,8 +35,21 @@ import PrivateRoute from "../../components/PrivateRoute";
         {
           path : "/training/:id",
           element : <PrivateRoute>
-            <TrainningDetails></TrainningDetails>
+            <TrainingDetails></TrainingDetails>
           </PrivateRoute>
+          // loader :()=> fetch("/data.json")
+        },
+        {
+          path : "/Most popular",
+          element : <PrivateRoute><MostPopular></MostPopular></PrivateRoute>
+        },
+        {
+          path: "/Blogs",
+          element : <PrivateRoute><Blogs></Blogs></PrivateRoute>
+        },
+        {
+          path : "*",
+          element : <NotFound></NotFound>
         }
        
     ]
